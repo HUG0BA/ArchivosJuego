@@ -18,7 +18,9 @@ public class Jack extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private JackType jackType = JackType.Flow;
-    private int cont = 0;
+    private static int cont = 0;
+    
+    private Timer timer;
     
     public void act()
     {
@@ -29,6 +31,10 @@ public class Jack extends Actor
             image.scale(110, 110);
             setImage(image);
             firstTime = false;
+            
+            timer = new Timer();
+            timer.schedule(new AgregarJackTask(), 2000, 2000);
+
         }
         
         int moveDistance = 2;
@@ -37,16 +43,28 @@ public class Jack extends Actor
         if (isAtEdge()){
         getWorld().removeObject(this);
         }
-        
-        cont++;
-        if (cont==100){
-            getWorld().addObject(new Jack(),100,100);
-        }
-
     }
 
+    
+    
+    private class AgregarJackTaskle extends TimerTask {
+        @Override
+        public void run() {
+            agregar_jack(110, 50);
+        }
+    }
+    
+    public void agregar_jack(int x, int y){
+        getWorld().addObject(new Jack(),x,y);
+    }
+    
 
     public JackType getJackType(){
         return jackType;
     }
+    
+    public static void resetContador() {
+        cont = 0; // Reinicia el contador estático
+    }
 }
+

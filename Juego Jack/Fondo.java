@@ -16,7 +16,6 @@ public class Fondo extends World
     Counter counter = new Counter();
     private GreenfootSound backgroundMusic;
     
-    
     public Fondo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -29,11 +28,11 @@ public class Fondo extends World
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    
+
     private void prepare()
     {
-        //backgroundMusic = new GreenfootSound("../sonido/song.mp3");
-        
+        backgroundMusic = new GreenfootSound("../sounds/song.mp3");
+
         Score_down score_down = new Score_down();
         addObject(score_down,2,466);
         score_down.setLocation(365,485);
@@ -49,10 +48,15 @@ public class Fondo extends World
         Score_right score_right = new Score_right();
         addObject(score_right,458,479);
         score_right.setLocation(485,455);
-        
-        
+
         addObject(counter,71,66);
         counter.setLocation(87,36);
+        
+        Jack jack = new Jack();
+        addObject(jack,109,58);
+        jack.setLocation(108,100);
+        
+        Jack.resetContador();
     }
     
     public Counter getCounter(){
@@ -62,8 +66,9 @@ public class Fondo extends World
     public void act() {
     if (!backgroundMusic.isPlaying()) {
         backgroundMusic.play();
+        backgroundMusic.setVolume(50);
     }
-}
+} 
 
     
 }

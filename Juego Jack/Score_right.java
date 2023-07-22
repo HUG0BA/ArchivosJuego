@@ -10,7 +10,7 @@ public class Score_right extends Actor
 {
     
 
-    private String scoreKey = "Down"; //Nombre de la tecla que se debe presionar 
+    private String scoreKey = "right"; //Nombre de la tecla que se debe presionar 
     private Fondo fondo; //Nombre del mundo utilizando para obtener acceso a contador
     private JackType jackType = JackType.Flow;
     
