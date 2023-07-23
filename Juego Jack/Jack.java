@@ -20,7 +20,7 @@ public class Jack extends Actor
     private JackType jackType = JackType.Flow;
     private static int cont = 0;
     
-    private Timer timer;
+    private Timer timer  = new Timer();
     
     public void act()
     {
@@ -31,8 +31,8 @@ public class Jack extends Actor
             image.scale(110, 110);
             setImage(image);
             firstTime = false;
+
             
-            timer = new Timer();
             timer.schedule(new AgregarJackTask(), 2000, 2000);
 
         }

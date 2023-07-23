@@ -18,6 +18,8 @@ public class Score_left extends Actor
     private int comboMultiplier = 1;
     private int comboCount = 1;
     private boolean isComboStreak = false;
+    private int maxComboMultiplier = 5; // El máximo multiplicador de combo que quieres permitir
+    
     /**
      * Act - do whatever the ScoreArea wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -40,8 +42,16 @@ public class Score_left extends Actor
             int points = CalculatePoints();
             AddPoints(points);
             getWorld().removeObject(jack);
+            comboCount++;
+            isComboStreak = true;
             } 
-        }
+            
+            } else {
+                // El jugador falló, reiniciar el contador de combos
+                comboCount = 0;
+                isComboStreak = false;
+            }
+        
         
         
         
@@ -54,6 +64,7 @@ public class Score_left extends Actor
     }
     
     public int CalculatePoints(){
+        comboMultiplier = Math.min(comboCount, maxComboMultiplier);
         int points = basePoint * comboMultiplier;
         return points;
     }
