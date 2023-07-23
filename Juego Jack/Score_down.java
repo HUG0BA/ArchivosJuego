@@ -18,7 +18,7 @@ public class Score_down extends Actor
     private int comboMultiplier = 1;
     private int comboCount = 1;
     private boolean isComboStreak = false;
-    private int maxComboMultiplier = 5; // El máximo multiplicador de combo que quieres permitir
+    private int maxComboMultiplier = 2; // El máximo multiplicador de combo que quieres permitir
          
     protected void addedToWorld(World world) {
         // Rotar la imagen en -90 grados una vez al añadir el objeto al mundo

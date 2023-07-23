@@ -57,6 +57,10 @@ public class Fondo extends World
         jack.setLocation(108,100);
         
         Jack.resetContador();
+        
+        jack.agregar_jack(225, 100, 1);
+        jack.agregar_jack(365, 100, 2);
+        
     }
     
     public Counter getCounter(){

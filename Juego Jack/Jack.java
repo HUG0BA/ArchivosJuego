@@ -19,8 +19,8 @@ public class Jack extends Actor
      */
     private JackType jackType = JackType.Flow;
     private static int cont = 0;
-    
-    private Timer timer  = new Timer();
+    private static Timer timer = new Timer(); // Instancia estática del Timer
+
     
     public void act()
     {
@@ -32,35 +32,34 @@ public class Jack extends Actor
             setImage(image);
             firstTime = false;
 
-            
-            timer.schedule(new AgregarJackTask(), 2000, 2000);
-
         }
         
         int moveDistance = 2;
         setLocation(getX(), getY() + moveDistance);
         
         if (isAtEdge()){
-        getWorld().removeObject(this);
+            getWorld().removeObject(this);
         }
     }
 
     
-    
-    private class AgregarJackTaskle extends TimerTask {
-        @Override
-        public void run() {
-            agregar_jack(110, 50);
-        }
+    public void agregar_jack(int x, int y, int delayInSeconds) {
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (!isRemoved()) {
+                getWorld().addObject(new Jack(), x, y);
+            }}
+        }, delayInSeconds * 1000);
     }
     
-    public void agregar_jack(int x, int y){
-        getWorld().addObject(new Jack(),x,y);
+    private boolean isRemoved() {
+        return getWorld() == null; // Verificar si el objeto Jack ha sido eliminado
     }
-    
 
     public JackType getJackType(){
         return jackType;
+
     }
     
     public static void resetContador() {
