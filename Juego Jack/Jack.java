@@ -34,20 +34,21 @@ public class Jack extends Actor
 
         }
         
-        int moveDistance = 2;
+        int moveDistance = 3;
         setLocation(getX(), getY() + moveDistance);
         
         if (isAtEdge()){
-            getWorld().removeObject(this);
+            getImage().setTransparency(0);
         }
     }
 
     
     public void agregar_jack(int x, int y, int delayInSeconds) {
+        final Jack currentJack = this; // Store reference to the current Jack object
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if (!isRemoved()) {
+                if (!currentJack.isRemoved()) {
                 getWorld().addObject(new Jack(), x, y);
             }}
         }, delayInSeconds * 1000);

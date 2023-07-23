@@ -18,7 +18,7 @@ public class Score_left extends Actor
     private int comboMultiplier = 1;
     private int comboCount = 1;
     private boolean isComboStreak = false;
-    private int maxComboMultiplier = 5; // El máximo multiplicador de combo que quieres permitir
+    private int maxComboMultiplier = 2; // El máximo multiplicador de combo que quieres permitir
     
     /**
      * Act - do whatever the ScoreArea wants to do. This method is called whenever
@@ -41,7 +41,8 @@ public class Score_left extends Actor
            if(jack.getJackType() == jackType){
             int points = CalculatePoints();
             AddPoints(points);
-            getWorld().removeObject(jack);
+            GreenfootImage jackImage = jack.getImage();
+            jackImage.setTransparency(0);
             comboCount++;
             isComboStreak = true;
             } 

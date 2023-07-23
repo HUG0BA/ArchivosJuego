@@ -1,4 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Write a description of class Fondo here.
@@ -58,8 +61,25 @@ public class Fondo extends World
         
         Jack.resetContador();
         
-        jack.agregar_jack(225, 100, 1);
-        jack.agregar_jack(365, 100, 2);
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(100);
+        numbers.add(225);
+        numbers.add(365);
+        numbers.add(485);
+        
+        
+        for (int i=1;i<=100;i++){
+            int randomIndex = new Random().nextInt(numbers.size());
+            int randomNumber = numbers.get(randomIndex);
+            if (i>50){
+                jack.agregar_jack(randomNumber, 100, i);
+                jack.agregar_jack(randomNumber, 100, i);
+            }
+            jack.agregar_jack(randomNumber, 100, i);
+            
+        }
+        
+
         
     }
     
