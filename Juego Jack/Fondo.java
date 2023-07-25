@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.Random;
+//import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class Fondo extends World
 
     private void prepare()
     {
-        backgroundMusic = new GreenfootSound("../sounds/song.mp3");
+        //backgroundMusic = new GreenfootSound("../sounds/song.mp3");
 
         Score_down score_down = new Score_down();
         addObject(score_down,2,466);
@@ -68,16 +68,15 @@ public class Fondo extends World
         numbers.add(485);
         
         
-        for (int i=1;i<=100;i++){
-            int randomIndex = new Random().nextInt(numbers.size());
-            int randomNumber = numbers.get(randomIndex);
-            if (i>50){
-                jack.agregar_jack(randomNumber, 100, i);
-                jack.agregar_jack(randomNumber, 100, i);
-            }
-            jack.agregar_jack(randomNumber, 100, i);
-            
-        }
+        //for (int i=1;i<=100;i++){
+        //    int randomIndex = new Random().nextInt(numbers.size());
+        //    int randomNumber = numbers.get(randomIndex);
+        //    if (i>50){
+        //        jack.agregar_jack(randomNumber, 100, i);
+        //        jack.agregar_jack(randomNumber, 100, i);
+        //    }
+        //            
+        //}
         
 
         
@@ -88,10 +87,10 @@ public class Fondo extends World
     }
     
     public void act() {
-    if (!backgroundMusic.isPlaying()) {
-        backgroundMusic.play();
-        backgroundMusic.setVolume(50);
-    }
+    //if (!backgroundMusic.isPlaying()) {
+    //   backgroundMusic.play();
+    //    backgroundMusic.setVolume(50);
+    //}
 } 
 
     

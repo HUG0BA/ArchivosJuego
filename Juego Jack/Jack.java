@@ -54,6 +54,7 @@ public class Jack extends Actor
         }, delayInSeconds * 1000);
     }
     
+    
     private boolean isRemoved() {
         return getWorld() == null; // Verificar si el objeto Jack ha sido eliminado
     }
