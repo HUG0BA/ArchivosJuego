@@ -34,7 +34,7 @@ public class Fondo extends World
 
     private void prepare()
     {
-        //backgroundMusic = new GreenfootSound("../sounds/song.mp3");
+        backgroundMusic = new GreenfootSound("../sounds/song.mp3");
 
         Score_down score_down = new Score_down();
         addObject(score_down,2,466);
@@ -52,20 +52,24 @@ public class Fondo extends World
         addObject(score_right,458,479);
         score_right.setLocation(485,455);
 
-        addObject(counter,71,66);
-        counter.setLocation(87,36);
+        addObject(counter,120,570);
+        counter.setLocation(120,570);
         
-        Jack jack = new Jack();
-        addObject(jack,109,58);
-        jack.setLocation(108,100);
+        Spawner spawner = new Spawner();
+        addObject(spawner, 550, 570);
+        spawner.setLocation(550,570);
         
-        Jack.resetContador();
+        //Jack jack = new Jack();
+        //addObject(jack,109,58);
+        //jack.setLocation(108,100);
         
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(100);
-        numbers.add(225);
-        numbers.add(365);
-        numbers.add(485);
+        //Jack.resetContador();
+        
+        //List<Integer> numbers = new ArrayList<>();
+        //numbers.add(100);
+        //numbers.add(225);
+        //numbers.add(365);
+        //numbers.add(485);
         
         
         //for (int i=1;i<=100;i++){

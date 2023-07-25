@@ -113,7 +113,7 @@ public class Spawner extends Actor
                 
                 long delayFinal = caculateBPMDelay(bpm, baseMultiplier);
                 
-                System.out.println("Delay final:" + delayFinal);
+                //System.out.println("Delay final:" + delayFinal);
                 
                 if (actualPhase == 1){
                     baseMultiplier = baseMultiplier * 2;
@@ -126,7 +126,7 @@ public class Spawner extends Actor
                     randomJackTimer(delayFinal);
                 }
                 else if (actualPhase == 2){
-                    
+                    baseMultiplier = baseMultiplier * 2;
                     timerPhase2.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
                             spawnJackRandom(2);
@@ -138,10 +138,10 @@ public class Spawner extends Actor
                     timerPhase1.purge();
                 }
                 else if (actualPhase == 3){
-                    baseMultiplier = baseMultiplier * 2;
+                    
                     timerPhase3.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(1);
+                            spawnJackRandom(2);
                         }
                     }, delayFinal, delayFinal );
                     randomJackTimer(delayFinal);
@@ -150,6 +150,7 @@ public class Spawner extends Actor
                     timerPhase2.purge();
                 }
                 else if (actualPhase == 4){
+                    baseMultiplier = baseMultiplier * 2;
                     timerPhase4.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
                             spawnJackRandom(2);
@@ -174,7 +175,7 @@ public class Spawner extends Actor
                     timerPhase4.purge();
                 }
                 else if (actualPhase == 6){
-                    baseMultiplier = baseMultiplier * 2;
+                    
                     timerPhase6.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
                             spawnJackRandom(1);
@@ -186,6 +187,7 @@ public class Spawner extends Actor
                     timerPhase5.purge();
                 }
                 else if (actualPhase == 7){
+                    baseMultiplier = baseMultiplier * 2;
                     timerPhase7.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
                             spawnJackRandom(2);
@@ -197,7 +199,7 @@ public class Spawner extends Actor
                     timerPhase6.purge();
                 }
                 else if (actualPhase == 8){
-                    baseMultiplier = baseMultiplier * 2;
+                    
                     timerPhase8.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
                             spawnJackRandom(1);
