@@ -47,8 +47,9 @@ public class Score_down extends Actor
            if(jack.getJackType() == jackType){
             int points = CalculatePoints();
             AddPoints(points);
-            GreenfootImage jackImage = jack.getImage();
-            jackImage.setTransparency(0);
+            getWorld().removeObject(jack);
+            //GreenfootImage jackImage = jack.getImage();
+            //jackImage.setTransparency(0);
             comboCount++;
             isComboStreak = true;
             } 

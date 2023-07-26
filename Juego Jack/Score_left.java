@@ -41,20 +41,19 @@ public class Score_left extends Actor
            if(jack.getJackType() == jackType){
             int points = CalculatePoints();
             AddPoints(points);
-            GreenfootImage jackImage = jack.getImage();
-            jackImage.setTransparency(0);
+            getWorld().removeObject(jack);
+            //GreenfootImage jackImage = jack.getImage();
+            //jackImage.setTransparency(0);
             comboCount++;
             isComboStreak = true;
             } 
-            
-            } else {
+            else {
                 // El jugador falló, reiniciar el contador de combos
                 comboCount = 0;
                 isComboStreak = false;
             }
-        
-        
-        
+        }
+    
         
     }  
     

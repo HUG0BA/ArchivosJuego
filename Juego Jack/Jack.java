@@ -43,21 +43,21 @@ public class Jack extends Actor
     }
 
     
-    public void agregar_jack(int x, int y, int delayInSeconds) {
-        final Jack currentJack = this; // Store reference to the current Jack object
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if (!currentJack.isRemoved()) {
-                getWorld().addObject(new Jack(), x, y);
-            }}
-        }, delayInSeconds * 1000);
-    }
+    //public void agregar_jack(int x, int y, int delayInSeconds) {
+    //    final Jack currentJack = this; // Store reference to the current Jack object
+    //    timer.schedule(new TimerTask() {
+    //        @Override
+    //        public void run() {
+    //            if (!currentJack.isRemoved()) {
+    //           getWorld().addObject(new Jack(), x, y);
+    //        }}
+    //    }, delayInSeconds * 1000);
+    //}
     
     
-    private boolean isRemoved() {
-        return getWorld() == null; // Verificar si el objeto Jack ha sido eliminado
-    }
+    //private boolean isRemoved() {
+    //    return getWorld() == null; // Verificar si el objeto Jack ha sido eliminado
+    //}
 
     public JackType getJackType(){
         return jackType;
