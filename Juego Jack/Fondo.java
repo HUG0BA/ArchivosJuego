@@ -35,6 +35,8 @@ public class Fondo extends World
     private void prepare()
     {
         backgroundMusic = new GreenfootSound("../sounds/song.mp3");
+        //.play();
+        //backgroundMusic.setVolume(50);
 
         Score_down score_down = new Score_down();
         addObject(score_down,2,466);
@@ -91,10 +93,10 @@ public class Fondo extends World
     }
     
     public void act() {
-    //if (!backgroundMusic.isPlaying()) {
-    //   backgroundMusic.play();
-    //    backgroundMusic.setVolume(50);
-    //}
+    if (!backgroundMusic.isPlaying()) {
+       backgroundMusic.play();
+       backgroundMusic.setVolume(50);
+    }
 } 
 
     
