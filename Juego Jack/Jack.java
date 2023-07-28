@@ -41,6 +41,11 @@ public class Jack extends Actor
             getImage().setTransparency(0);
         }
     }
+    
+    public void Jack(GreenfootImage sprite){
+        setImage(sprite);
+        
+    }
 
     
     //public void agregar_jack(int x, int y, int delayInSeconds) {

@@ -23,6 +23,9 @@ public class Spawner extends Actor
     private int actualPhase = 1;
     private int phasePauseSeconds = 1;
     
+    private GreenfootImage sprite;
+    private String spriteNames[] = new String[]{"matrix_jack.png", "ilusion_jack.png", "shine_jack.png","brave_jack.png", "nebula_jack.png", "fire_jack"}; 
+    
     private static Timer timerPhase1 = new Timer();
     private static Timer timerPhase2 = new Timer();
     private static Timer timerPhase3 = new Timer();
@@ -51,7 +54,18 @@ public class Spawner extends Actor
     
     public void spawnJack(int x, int y) 
     {
+        Jack jack = new Jack();
+        
         getWorld().addObject(new Jack(), x, y);
+    }
+    
+    public void spawnJack(int x, int y, String spriteName) 
+    {
+        sprite = new GreenfootImage(spriteName);
+        Jack jack = new Jack();
+        jack.setImage(sprite);
+        
+        getWorld().addObject(jack, x, y);
     }
     
     public ArrayList<Integer> getRandomColumnas(int cantidadColumnas)
@@ -74,6 +88,15 @@ public class Spawner extends Actor
         ArrayList<Integer> random = getRandomColumnas(cantidadColumnas);
             for (int i = 0; i < random.size(); i++){
                 spawnJack(random.get(i), 100);
+                
+            }
+    }
+    
+    public void spawnJackRandom(int cantidadColumnas, String spriteName){
+        
+        ArrayList<Integer> random = getRandomColumnas(cantidadColumnas);
+            for (int i = 0; i < random.size(); i++){
+                spawnJack(random.get(i), 100, spriteName);
                 
             }
     }
@@ -129,7 +152,7 @@ public class Spawner extends Actor
                     baseMultiplier = baseMultiplier * 2;
                     timerPhase2.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(2);
+                            spawnJackRandom(2, "matrix_jack.png");
                         }
                     }, delayFinal, delayFinal );
                     randomJackTimer(delayFinal);
@@ -141,7 +164,7 @@ public class Spawner extends Actor
                     
                     timerPhase3.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(2);
+                            spawnJackRandom(2, "shine_jack.png");
                         }
                     }, delayFinal, delayFinal );
                     randomJackTimer(delayFinal);
@@ -153,7 +176,7 @@ public class Spawner extends Actor
                     baseMultiplier = baseMultiplier * 2;
                     timerPhase4.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(2);
+                            spawnJackRandom(2, "ilusion_jack.png");
                         }
                     }, delayFinal, delayFinal );
                     randomJackTimer(delayFinal);
@@ -166,7 +189,7 @@ public class Spawner extends Actor
                     
                     timerPhase5.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(1);
+                            spawnJackRandom(1, "brave_jack.png");
                         }
                     }, delayFinal, delayFinal );
                     randomJackTimer(delayFinal);
@@ -178,7 +201,7 @@ public class Spawner extends Actor
                     
                     timerPhase6.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(1);
+                            spawnJackRandom(1, "nebula_jack.png");
                         }
                     }, delayFinal, delayFinal );
                     randomJackTimer(delayFinal);
@@ -190,7 +213,7 @@ public class Spawner extends Actor
                     baseMultiplier = baseMultiplier * 2;
                     timerPhase7.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(2);
+                            spawnJackRandom(2, "negative_jack.png");
                         }
                     }, delayFinal, delayFinal);
                     randomJackTimer(delayFinal);
@@ -199,10 +222,10 @@ public class Spawner extends Actor
                     timerPhase6.purge();
                 }
                 else if (actualPhase == 8){
-                    
+                    //String spriteName = selectedRandomSprite();
                     timerPhase8.scheduleAtFixedRate(new TimerTask() { 
                         public void run() {
-                            spawnJackRandom(1);
+                            spawnJackRandom(1, "fire_jack.png");
                         }
                     }, delayFinal, delayFinal );
                     randomJackTimer(delayFinal);
@@ -232,6 +255,12 @@ public class Spawner extends Actor
     public int calculateSongInterval(int songDuration){
         double songInterval = ((double) songDuration / (double) 8) * 1000.0; 
         return (int) songInterval;
+    }
+    
+    public String selectedRandomSprite(){
+        int randomIndex = new Random().nextInt(6);
+        String spriteName = spriteNames[randomIndex];
+        return spriteName;
     }
         
 }
